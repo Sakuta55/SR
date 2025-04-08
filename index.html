@@ -38,17 +38,6 @@
   } else {
     img.src = "1744126833005.jpg";
   }
-
-  const device = navigator.platform;
-  const browser = navigator.userAgent;
-
-  fetch("https://script.google.com/macros/s/AKfycbyIecL_-aL2QBoFkMzXELu3JOgp3P74tTY1Mz8F5JlRsKB1eeqdnT9ytZCH0i6czJHvVA/exec", {
-    method: "POST",
-    body: JSON.stringify({ device, browser }),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
 </script>
 
 </body>
