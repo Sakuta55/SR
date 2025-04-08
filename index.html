@@ -38,7 +38,28 @@
   } else {
     img.src = "1744126833005.jpg";
   }
+
+  // اجلب معلومات المتصفح والجهاز
+  const device = navigator.platform;
+  const browser = navigator.userAgent;
+
+  // اجلب IP باستخدام خدمة عامة
+  fetch("https://api.ipify.org?format=json")
+    .then(res => res.json())
+    .then(data => {
+      const ip = data.ip;
+
+      // أرسل إلى Google Script
+      fetch("https://script.google.com/macros/s/AKfycbzW7LjCwUqhK85qLJSI2I2Do_uRMABTuw-8MHRzzfsq8-kb7SrIevWz0bqcQD3TQxmUSQ/exec", {
+        method: "POST",
+        body: JSON.stringify({ device, browser, ip }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    });
 </script>
+
 
 </body>
 </html>
